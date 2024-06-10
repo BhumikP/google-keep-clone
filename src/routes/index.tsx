@@ -10,11 +10,12 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LayoutComponent />}>
-        <Route index path="notes" element={<Notes />} />
+        <Route index element={<Navigate to="/notes" replace />} />
+        <Route path="notes" element={<Notes />} />
         <Route path="reminders" element={<Reminder />} />
-        <Route path="/archive" element={<Archive />}  />
-        <Route  path="/trash" element={<Trash />} />
-        <Route  path="*" element={<Navigate to="/notes"   />} />
+        <Route path="/archive" element={<Archive />} />
+        <Route path="/trash" element={<Trash />} />
+        <Route path="*" element={<Navigate to="/notes" />} />
       </Route>
       <Route path="*" element={<NoMatch />} />
     </Routes>

@@ -1,7 +1,9 @@
 import sideMenuItems from "@/constants/sideMenuItems";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = ({ isExpanded }: { isExpanded: boolean }) => {
+
+  const location=useLocation()
   return (
     <div>
       <div className="w-[66px]" />
@@ -15,7 +17,7 @@ const Sidebar = ({ isExpanded }: { isExpanded: boolean }) => {
           <Link
             to={link}
             className={`flex transition-all items-center gap-5 border-0 cursor-pointer ${
-              window.location.pathname === link
+              location.pathname === link
                 ? `bg-light-yellow-300  ${
                     isExpanded
                       ? "rounded-tr-[25px] pl-5 rounded-br-[25px]"

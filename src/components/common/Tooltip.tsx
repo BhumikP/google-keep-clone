@@ -1,37 +1,40 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 
-export const Tooltip = ({
-  message,
-  children,
-  position = "top",
-}: {
+interface TooltipProps {
+  children: React.ReactNode;
   message: string;
-  position?: string;
-  children: ReactNode;
+  direction?: "top" | "right" | "bottom" | "left";
+  delay?: number;
+}
+
+export const Tooltip: React.FC<TooltipProps> = ({
+  children,
+  message,
+  direction = "top",
+  delay = 400,
 }) => {
-  const [show, setShow] = useState(false);
+  let timeout: ReturnType<typeof setTimeout>;
+  const [active, setActive] = useState(false);
+
+  const showTip = () => {
+    timeout = setTimeout(() => {
+      setActive(true);
+    }, delay);
+  };
+
+  const hideTip = () => {
+    clearInterval(timeout);
+    setActive(false);
+  };
+
   return (
-    <div className="relative flex flex-col items-center group">
-      <span
-        className="flex justify-center"
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
-      >
-        {children}
-      </span>
-      <div
-        className={`absolute whitespace-nowrap bottom-full flex flex-col items-center  group-hover:flex ${
-          !show ? "hidden" : null
-        }`}
-      >
-        <span
-          className={`relative z-[100]  p-2 text-xs leading-none text-white whitespace-no-wrap bg-gray-600 shadow-lg rounded-md2 
-          ${position === "bottom" ? "top-4 -left-24" : "left-5"}`}
-        >
-          {message}
-        </span>
-        <div className={`w-3 h-3 ${position==='bottom'?'-mt-6  ':'-mt-2'}  rotate-45 bg-gray-600`} />
-      </div>
+    <div
+      className="Tooltip-Wrapper z-[9999]"
+      onMouseEnter={showTip}
+      onMouseLeave={hideTip}
+    >
+      {children}
+      {active && <div className={`Tooltip-Tip ${direction}`}>{message}</div>}
     </div>
   );
 };

@@ -20,6 +20,7 @@ import Input from "../common/Input";
 import { ListData } from "../ListItems";
 import { Add } from "@mui/icons-material";
 import { Tooltip } from "../common/Tooltip";
+import { COLOR_WHITE } from "@/utils/constant";
 
 interface Props {
   onClose: () => void;
@@ -42,7 +43,7 @@ const AddOrEditNote = ({
   title = "",
   description = "",
   listItems = [],
-  bgColor='#FFFFFF',
+  bgColor = COLOR_WHITE,
   isListType = false,
 }: Props) => {
   const containerRef = useRef(null);
@@ -161,7 +162,7 @@ const AddOrEditNote = ({
 
   return (
     <div
-      className="flex flex-col items-start"
+      className="flex flex-col items-start p-1 rounded-md"
       ref={containerRef}
       style={{ background: bgColor }}
     >
@@ -185,7 +186,7 @@ const AddOrEditNote = ({
       {isListType ? (
         <div className="pt-2 w-full outline-none pl-2 bg-transparent">
           <div className="flex items-center gap-4">
-            <Tooltip message="click to add">
+            <Tooltip direction="right" message="click to add">
               <Add className="cursor-pointer" onClick={addItemToList} />
             </Tooltip>
             <Input

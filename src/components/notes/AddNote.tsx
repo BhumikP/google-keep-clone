@@ -58,7 +58,7 @@ const AddNote = ({ setNotesData, totalNotes }: Props) => {
           onClick={(e) => handleOpenNotesBox(e, false)}
         >
           <p>Take a note...</p>
-          <Tooltip position="bottom" message="Create your checklist">
+          <Tooltip direction="left" message="Create your checklist">
             <Checklist
               className="cursor-pointer"
               onClick={(e) => handleOpenNotesBox(e, true)}

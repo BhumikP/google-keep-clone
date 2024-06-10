@@ -14,7 +14,7 @@ const Modal = ({ isOpen, children }: Props) => {
     <div className={modalClasses}>
       <div className="fixed inset-0 bg-black opacity-50 "></div>
       <div
-        className={`relative bg-transparent max-w-[600px] w-full p-1 rounded-md shadow-lg z-10 transition-all duration-200 ${
+        className={`relative max-w-[600px] w-full shadow-lg z-10 transition-all duration-200 ${
           isOpen ? "ease-in" : "ease-out"
         }`}
       >

@@ -3,6 +3,7 @@ import EditNote from "./EditNote";
 import { Note } from "@/types/Notes";
 import { ListData } from "../ListItems";
 import ColorLensOutlinedIcon from "@mui/icons-material/ColorLensOutlined";
+import { COLOR_WHITE } from "@/utils/constant";
 
 interface Props {
   setNotesData: Dispatch<SetStateAction<Note[]>>;
@@ -11,7 +12,7 @@ interface Props {
 const ViewNote = (props: Note & Props) => {
   const [openModal, setIsOpenModal] = useState(false);
   const [selectedColor, setSelectedColor] = useState(
-    props?.bgColor || "FFFFFF"
+    props?.bgColor || COLOR_WHITE
   );
 
   const handleColorPicker = (e: React.ChangeEvent<HTMLInputElement>) => {

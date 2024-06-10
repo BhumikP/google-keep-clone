@@ -10,7 +10,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LayoutComponent />}>
-        <Route path="notes" element={<Notes />} />
+        <Route index path="notes" element={<Notes />} />
         <Route path="reminders" element={<Reminder />} />
         <Route path="/archive" element={<Archive />}  />
         <Route  path="/trash" element={<Trash />} />

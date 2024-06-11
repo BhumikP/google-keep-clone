@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 ## Project Setup Instructions
 
-#### prerequisites tools
+#### Prerequisites tools
 - Git
 
 ### Clone the repository
@@ -19,13 +19,15 @@ Currently, two official plugins are available:
 - Using SSH URL
 - Using github CLI
 
- One of the way is using HTTP/HTTPS URL `git clone https://github.com/BhumikP/google-keep-clone.git` .
+ One of the way is using HTTP/HTTPS URL `git clone https://github.com/BhumikP/google-keep-clone.git` 
 
 ### Install dependencies
- - Run `npm install` to install all dependencies related to project
+ - Run `npm install` to install all dependencies of project
 
 ### Run the Project
 - Run Project using `npm run dev` 
+
+You can find the hostel vercel link [here](https://google-keep-clone-ebon.vercel.app/notes)
 
 ## What's Included in the Project?
 
@@ -36,4 +38,10 @@ Currently, two official plugins are available:
 - Complete task(Complete task by clicking checkbox and it will move to bottom end of list with strikethrough)
 - Re-arrange your notes (Re-arrange notes by drag & drop )
 - Color your notes(Pick a color from color picker and color note with your favorite color)
-- Delete all Notes ( Delete all of your notes from `/trash` page)
+- Delete all Notes ( Delete all of your notes from `Trash` page)
+- LocalStorage to Manage the data
+
+## Note
+
+ Here for the ease of access, I have used localStorage to store & retrieve notes.
+ In large applications we can use Redux to store and  manage the data where we do not need to do same API call again.  

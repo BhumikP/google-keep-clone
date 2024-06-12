@@ -112,7 +112,6 @@ const AddOrEditNote = ({
         const editIndex = notes.findIndex((note) => note.id === id);
         const newNotes = notes;
         newNotes[editIndex] = { ...formData, id: id };
-        console.log("updated notes", newNotes);
 
         setItemInStorage("notes", newNotes);
         setNotesData([...newNotes]);

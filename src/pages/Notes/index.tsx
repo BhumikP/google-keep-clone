@@ -18,7 +18,6 @@ const Notes = () => {
 
   const onDragNote = async (dragIndex: number, hoverIndex: number) => {
     const updatedItems = Array.from(memoizedNotes);
-    console.log(dragIndex, hoverIndex);
     const [movedItem] = updatedItems.splice(dragIndex, 1);
 
     updatedItems.splice(hoverIndex, 0, movedItem);
